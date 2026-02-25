@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pika Brand Aesthetic</title>
+  <style>
+    @font-face {
+      font-family: 'Telka Extended';
+      src: url('fonts/Telka-Extended-Regular.otf') format('opentype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'Telka Extended';
+      src: url('fonts/Telka-Extended-Medium.otf') format('opentype');
+      font-weight: 500;
+    }
+    @font-face {
+      font-family: 'Telka Extended';
+      src: url('fonts/Telka-Extended-Bold.otf') format('opentype');
+      font-weight: 700;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --pika-key: #C4B6FF;
+      --pika-black: #0D0D0D;
+      --pika-white: #FFFFFF;
+      --pika-eggshell: #FCFAF7;
+      --pika-dust: #F2ECE4;
+      --pika-foam: #FCF6ED;
+      --pika-ironside: #6E6D6B;
+      --pika-peach: #FFECD9;
+      --pika-mint: #D4F5E9;
+      --pika-pink: #FFD9E8;
+      --pika-lime: #E8F5D4;
+      --pika-tangerine: #FFD4B8;
+      --pika-squash: #FFE4B8;
+    }
+    
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--pika-eggshell);
+      color: var(--pika-black);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .telka { font-family: 'Telka Extended', sans-serif; }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(252, 250, 247, 0.9);
+      backdrop-filter: blur(10px);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo svg { width: 32px; height: 32px; }
+    .logo span { font-family: 'Telka Extended'; font-weight: 500; font-size: 18px; }
+    nav a { color: var(--pika-ironside); text-decoration: none; font-size: 14px; }
+    nav a:hover { color: var(--pika-black); }
+    
+    /* Sections */
+    section {
+      padding: 120px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) { section { padding: 80px 24px; } }
+    
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--pika-ironside);
+      margin-bottom: 16px;
+    }
+    
+    .section-title {
+      font-family: 'Telka Extended';
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 500;
+      margin-bottom: 48px;
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .hero svg { width: 80px; height: 80px; margin-bottom: 32px; }
+    .hero h1 {
+      font-family: 'Telka Extended';
+      font-size: clamp(48px, 10vw, 96px);
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .hero p {
+      font-size: 20px;
+      color: var(--pika-ironside);
+      max-width: 500px;
+    }
+    
+    /* Logo Section */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 768px) { .logo-grid { grid-template-columns: 1fr; } }
+    
+    .logo-card {
+      padding: 64px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-card svg { width: 64px; height: 64px; }
+    .logo-card.light { background: var(--pika-white); }
+    .logo-card.dark { background: var(--pika-black); color: var(--pika-white); }
+    .logo-card.key { background: var(--pika-key); }
+    .logo-card.peach { background: var(--pika-peach); }
+    
+    /* Colors */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .color-card {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--pika-white);
+    }
+    .color-swatch {
+      height: 120px;
+    }
+    .color-info {
+      padding: 16px;
+    }
+    .color-name {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .color-hex {
+      font-size: 14px;
+      color: var(--pika-ironside);
+      font-family: 'SF Mono', monospace;
+    }
+    
+    /* Typography */
+    .type-specimen {
+      margin-bottom: 48px;
+    }
+    .type-label {
+      font-size: 14px;
+      color: var(--pika-ironside);
+      margin-bottom: 16px;
+    }
+    .type-display {
+      font-family: 'Telka Extended';
+      font-size: clamp(48px, 8vw, 80px);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .type-weights {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .type-weight {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+    }
+    .type-weight-label {
+      font-size: 14px;
+      color: var(--pika-ironside);
+      width: 100px;
+    }
+    .type-weight-sample {
+      font-family: 'Telka Extended';
+      font-size: 32px;
+    }
+    
+    /* Principles */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 768px) { .principles-grid { grid-template-columns: 1fr; } }
+    
+    .principle-card {
+      background: var(--pika-white);
+      padding: 32px;
+      border-radius: 16px;
+    }
+    .principle-number {
+      font-family: 'Telka Extended';
+      font-size: 48px;
+      color: var(--pika-key);
+      margin-bottom: 16px;
+    }
+    .principle-title {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .principle-desc {
+      color: var(--pika-ironside);
+      font-size: 15px;
+    }
+    
+    /* Accents */
+    .accent-grid {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .accent-pill {
+      padding: 16px 32px;
+      border-radius: 100px;
+      font-weight: 500;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 48px;
+      text-align: center;
+      color: var(--pika-ironside);
+      font-size: 14px;
+    }
+    
+    /* Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8.5873 7.48364C8.40237 7.52269 8.21517 7.56391 8.02645 7.60803C-3.31177 10.2325 0.682378 20 0.682378 20H9.34065C9.20044 18.6643 8.19698 17.2012 5.74213 16.2032V16.1049C8.60246 16.9402 9.63169 18.3663 10.0508 19.9993H20.7319L19.0138 18.6013C20.0187 15.6008 24 14.1826 24 14.1826C23.859 11.7758 22.5607 9.53173 18.2172 7.71434L8.34022 4C8.67218 7.95878 10.1509 10.2296 13.8585 10.7865V10.8834C11.2824 10.8234 9.49451 9.72989 8.5873 7.48364Z"/>
+      </svg>
+      <span>pika</span>
+    </div>
+    <a href="https://pika.me">pika.me</a>
+  </nav>
+  
+  <!-- Hero -->
+  <section class="hero">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8.5873 7.48364C8.40237 7.52269 8.21517 7.56391 8.02645 7.60803C-3.31177 10.2325 0.682378 20 0.682378 20H9.34065C9.20044 18.6643 8.19698 17.2012 5.74213 16.2032V16.1049C8.60246 16.9402 9.63169 18.3663 10.0508 19.9993H20.7319L19.0138 18.6013C20.0187 15.6008 24 14.1826 24 14.1826C23.859 11.7758 22.5607 9.53173 18.2172 7.71434L8.34022 4C8.67218 7.95878 10.1509 10.2296 13.8585 10.7865V10.8834C11.2824 10.8234 9.49451 9.72989 8.5873 7.48364Z"/>
+    </svg>
+    <h1>Pika Brand</h1>
+    <p>Design language and visual identity for Pika AI Self</p>
+  </section>
+  
+  <!-- Logo -->
+  <section class="reveal">
+    <p class="section-label">Symbol</p>
+    <h2 class="section-title">The Pika Mark</h2>
+    <div class="logo-grid">
+      <div class="logo-card light">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8.5873 7.48364C8.40237 7.52269 8.21517 7.56391 8.02645 7.60803C-3.31177 10.2325 0.682378 20 0.682378 20H9.34065C9.20044 18.6643 8.19698 17.2012 5.74213 16.2032V16.1049C8.60246 16.9402 9.63169 18.3663 10.0508 19.9993H20.7319L19.0138 18.6013C20.0187 15.6008 24 14.1826 24 14.1826C23.859 11.7758 22.5607 9.53173 18.2172 7.71434L8.34022 4C8.67218 7.95878 10.1509 10.2296 13.8585 10.7865V10.8834C11.2824 10.8234 9.49451 9.72989 8.5873 7.48364Z"/>
+        </svg>
+      </div>
+      <div class="logo-card dark">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8.5873 7.48364C8.40237 7.52269 8.21517 7.56391 8.02645 7.60803C-3.31177 10.2325 0.682378 20 0.682378 20H9.34065C9.20044 18.6643 8.19698 17.2012 5.74213 16.2032V16.1049C8.60246 16.9402 9.63169 18.3663 10.0508 19.9993H20.7319L19.0138 18.6013C20.0187 15.6008 24 14.1826 24 14.1826C23.859 11.7758 22.5607 9.53173 18.2172 7.71434L8.34022 4C8.67218 7.95878 10.1509 10.2296 13.8585 10.7865V10.8834C11.2824 10.8234 9.49451 9.72989 8.5873 7.48364Z"/>
+        </svg>
+      </div>
+      <div class="logo-card key">
+        <svg viewBox="0 0 24 24" fill="white">
+          <path d="M8.5873 7.48364C8.40237 7.52269 8.21517 7.56391 8.02645 7.60803C-3.31177 10.2325 0.682378 20 0.682378 20H9.34065C9.20044 18.6643 8.19698 17.2012 5.74213 16.2032V16.1049C8.60246 16.9402 9.63169 18.3663 10.0508 19.9993H20.7319L19.0138 18.6013C20.0187 15.6008 24 14.1826 24 14.1826C23.859 11.7758 22.5607 9.53173 18.2172 7.71434L8.34022 4C8.67218 7.95878 10.1509 10.2296 13.8585 10.7865V10.8834C11.2824 10.8234 9.49451 9.72989 8.5873 7.48364Z"/>
+        </svg>
+      </div>
+      <div class="logo-card peach">
+        <svg viewBox="0 0 24 24" fill="var(--pika-black)">
+          <path d="M8.5873 7.48364C8.40237 7.52269 8.21517 7.56391 8.02645 7.60803C-3.31177 10.2325 0.682378 20 0.682378 20H9.34065C9.20044 18.6643 8.19698 17.2012 5.74213 16.2032V16.1049C8.60246 16.9402 9.63169 18.3663 10.0508 19.9993H20.7319L19.0138 18.6013C20.0187 15.6008 24 14.1826 24 14.1826C23.859 11.7758 22.5607 9.53173 18.2172 7.71434L8.34022 4C8.67218 7.95878 10.1509 10.2296 13.8585 10.7865V10.8834C11.2824 10.8234 9.49451 9.72989 8.5873 7.48364Z"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Colors -->
+  <section class="reveal">
+    <p class="section-label">Color</p>
+    <h2 class="section-title">Palette</h2>
+    
+    <p class="type-label" style="margin-bottom: 24px;">Core</p>
+    <div class="color-grid" style="margin-bottom: 48px;">
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--pika-key);"></div>
+        <div class="color-info">
+          <p class="color-name">Key</p>
+          <p class="color-hex">#C4B6FF</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--pika-black);"></div>
+        <div class="color-info">
+          <p class="color-name">Black</p>
+          <p class="color-hex">#0D0D0D</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--pika-eggshell); border: 1px solid var(--pika-dust);"></div>
+        <div class="color-info">
+          <p class="color-name">Eggshell</p>
+          <p class="color-hex">#FCFAF7</p>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: var(--pika-ironside);"></div>
+        <div class="color-info">
+          <p class="color-name">Ironside</p>
+          <p class="color-hex">#6E6D6B</p>
+        </div>
+      </div>
+    </div>
+    
+    <p class="type-label" style="margin-bottom: 24px;">Accents</p>
+    <div class="accent-grid">
+      <div class="accent-pill" style="background: var(--pika-peach);">Peach</div>
+      <div class="accent-pill" style="background: var(--pika-mint);">Mint</div>
+      <div class="accent-pill" style="background: var(--pika-pink);">Pink</div>
+      <div class="accent-pill" style="background: var(--pika-lime);">Lime</div>
+      <div class="accent-pill" style="background: var(--pika-tangerine);">Tangerine</div>
+      <div class="accent-pill" style="background: var(--pika-squash);">Squash</div>
+    </div>
+  </section>
+  
+  <!-- Typography -->
+  <section class="reveal">
+    <p class="section-label">Typography</p>
+    <h2 class="section-title">Telka Extended</h2>
+    
+    <div class="type-specimen">
+      <p class="type-display telka">Your AI Self</p>
+      <p class="type-label">Display / Headlines</p>
+    </div>
+    
+    <div class="type-weights">
+      <div class="type-weight">
+        <span class="type-weight-label">Regular</span>
+        <span class="type-weight-sample telka" style="font-weight: 400;">The quick brown fox</span>
+      </div>
+      <div class="type-weight">
+        <span class="type-weight-label">Medium</span>
+        <span class="type-weight-sample telka" style="font-weight: 500;">The quick brown fox</span>
+      </div>
+      <div class="type-weight">
+        <span class="type-weight-label">Bold</span>
+        <span class="type-weight-sample telka" style="font-weight: 700;">The quick brown fox</span>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Principles -->
+  <section class="reveal">
+    <p class="section-label">Design Principles</p>
+    <h2 class="section-title">How We Design</h2>
+    
+    <div class="principles-grid">
+      <div class="principle-card">
+        <p class="principle-number telka">01</p>
+        <h3 class="principle-title">Warm, Not Cold</h3>
+        <p class="principle-desc">Use eggshell backgrounds instead of pure white. Our palette is soft and inviting.</p>
+      </div>
+      <div class="principle-card">
+        <p class="principle-number telka">02</p>
+        <h3 class="principle-title">Soft Accents</h3>
+        <p class="principle-desc">Peach, mint, pink — no harsh primary colors. Gentle touches that feel human.</p>
+      </div>
+      <div class="principle-card">
+        <p class="principle-number telka">03</p>
+        <h3 class="principle-title">Telka for Impact</h3>
+        <p class="principle-desc">Reserve the display font for headlines and key moments. Let it breathe.</p>
+      </div>
+      <div class="principle-card">
+        <p class="principle-number telka">04</p>
+        <h3 class="principle-title">Generous Space</h3>
+        <p class="principle-desc">White space is a feature, not a bug. Let the design breathe and elements stand out.</p>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    © 2026 Pika Labs
+  </footer>
+  
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
